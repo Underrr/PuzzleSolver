@@ -1,0 +1,57 @@
+import java.lang.Integer;
+
+public class Water implements Puzzlze{
+    
+    private int goal;
+    private int[] jugMax;
+    private int[] jugCurrent;
+    
+    public Water(){}
+    
+    public Water(int g, int[] jm){
+        goal = g;
+        jugMax = new int[jm.length];
+        jugCurrent = new int[jm.length];
+        
+        for(int j=0; j<jm.length; j++){
+            jugMax[j] = jm[j];
+        }
+        
+        for(int i=0; i<jm.length; i++){
+            jugCurrent[i] = 0;
+        }
+    }
+    
+    public int getGoal(){
+        return this.goal;
+    }
+    
+    public int[] getMax(){
+        return this.jugMax;
+    }
+    
+    public int[] getCurrent(){
+        return this.jugCurrent;
+    }
+    
+    public static void main(String args[]){
+        int g;
+        int[] jm;
+        
+        if(!(args.length < 2)){
+            System.err.println("Usage: java Water amount jug1 jug2 ...");
+            System.exit(0);
+        }
+        
+        g = Integer.parseInt(args[0]);
+        jm = new int[args.length-1];
+        
+        for(int i=1; i<args.length; i++){
+            jm[i-1] = args[i];
+        }
+        
+        Water w = new Water(g, jm);
+        Solver2 s =  new Solver();
+        s.solve(w);
+    }
+}

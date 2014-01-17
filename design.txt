@@ -1,0 +1,28 @@
+CSX Puzzle Solver, Project Part 2:  Water & Clock
+
+Name: Derrick Lee
+
+
+1. Explain how your common solver is able to work with both puzzles.
+    Solver uses the calls methods contained in the Puzzle interface, thus allowing the methods
+    to be defined in each of the other classes (Clock and Water) and have different operations.
+
+
+2. What was the type of configuration you used for each puzzle?
+    For the Clock puzzle, the subconfiguration was a Clock object that held a single integer. 
+    The final configs were ArrayLists of these subconfigurations.
+    
+    For the Water puzzle, the subconfiguration was a Water object that held an array of integers.
+    Final configs were ArrayLists of these subconfigurations.
+
+
+3. Starting with the Puzzle interface from part 1, what were the major
+changes and additions you had to make?
+    The subconfigurations had to be more generic so they were stored in separate Puzzle objects.
+    Modified the BFS so that subconfigurations would not be repeated (required a HashSet).
+
+
+
+4. What problems, if any, did you encounter when re-designing your 
+project from part 1?
+    Ensuring that none of the subconfigurations repeated.
